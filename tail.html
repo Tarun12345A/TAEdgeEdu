@@ -1,0 +1,151 @@
+
+
+<!--*******************************************************************************************************
+    ********************************  FOOTER  ****************************************************************  
+    ********************************************************************************************************-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        /* Footer CSS */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 30px 0;
+            font-family: Arial, sans-serif;
+            box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.5);
+            margin-top: 5%;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin-bottom: 30px;
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .footer-title i {
+            margin-right: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details, .footer-links, .social-media {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-details .data, .footer-links .data, .social-media .data {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 16px;
+        }
+
+        .Tarun {
+            text-align: end;
+            margin-right: 30px;
+            margin-top: 10px;
+            color: #a7a2a2;
+            font-size: 14px;
+        }
+
+        /* Icon Styles */
+        .fas,
+        .far,
+        .fab {
+            font-size: 20px;
+        }
+
+        /* Hover Effect */
+        .footer-title:hover {
+            color: #f39c12;
+        }
+
+        .footer-title i:hover {
+            color: #f39c12;
+        }
+
+        .data:hover {
+            color: #f39c12;
+        }
+
+        /* Animation */
+        .footer-title, .footer-title i, .data {
+            transition: transform 0.3s ease;
+        }
+
+        .footer-title:hover, .footer-title i:hover, .data:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .footer-section {
+                flex-basis: 100%;
+            }
+            .footer {
+            
+            margin-top: 15%;
+        }
+
+        }
+        
+        /* Space between li tags */
+        .footer-links li,
+        .social-media li,
+        .contact-details li {
+            margin-bottom: 10px;
+        }
+
+        /* Space between contact details */
+        .contact-details {
+            margin-bottom: 20px;
+        }
+    </style>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h2 class="footer-title"><i class="fas fa-envelope"></i> Contact Us</h2>
+                <div class="contact-details">
+                    <a class="data" href="mailto:contact@example.com"><i class="far fa-envelope"></i> contact@example.com</a>
+                </div>
+                <div class="contact-details">
+                    <a class="data" href="tel:+1234567890"><i class="fas fa-phone"></i> +1234567890</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h2 class="footer-title"><i class="fas fa-link"></i> Useful Links</h2>
+                <ul class="footer-links">
+                    <li><a class="data" href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a class="data" href="#"><i class="fas fa-book"></i> Courses</a></li>
+                    <li><a class="data" href="#"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a class="data" href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h2 class="footer-title"><i class="fas fa-share-alt"></i> Follow Us</h2>
+                <ul class="social-media">
+                    <li><a href="#" class="data"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                    <li><a href="#" class="data"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#" class="data"><i class="fab fa-instagram"></i> Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="Tarun">Created by -> Tarun</div>
+    </footer>
