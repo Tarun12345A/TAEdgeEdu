@@ -1,0 +1,323 @@
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-LfBgepjG2X0Gu8czu5M8gv6eHkDp74M+xNh5IzYF7u8Fd6XwPCCFco2ZIg4tIpgn6YrFr7w7lsBqTgbfTnMn7g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* CSS styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+   
+    .login-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      z-index: 9999;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease; /* Transition for opacity */
+    }
+    .login-popup.active {
+      display: block;
+      opacity: 1;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      cursor: pointer;
+      color: #777;
+      transition: color 0.3s ease; /* Transition for close button color */
+    }
+    .close-btn:hover {
+      color: #FF5733;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+      z-index: 999; /* Ensure it's above everything else */
+      display: none; /* Initially hidden */
+      opacity: 0;
+      transition: opacity 0.3s ease; /* Transition for overlay opacity */
+    }
+    .overlay.active {
+      display: block;
+      opacity: 1;
+    }
+    .input-container {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .input-container input {
+      width: 100%;
+      padding: 10px;
+      padding-left: 30px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease; /* Transition for border color */
+    }
+    .input-container input:focus {
+      border-color: #FF5733;
+    }
+    .input-container i {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #777;
+    }
+    .btn {
+      padding: 10px 20px;
+      background-color: #FF5733;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* Transition for background color */
+    }
+    .btn:hover {
+      background-color: #ff704d;
+    }
+    .links {
+      margin-top: 20px;
+      color: #777;
+    }
+    .links a {
+      margin: 0 10px;
+      color: #FF5733;
+      text-decoration: none;
+    }
+    .links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <div class="login-container">
+    <button class="btn" id="loginButton">Login</button>
+  </div>
+
+  <div class="overlay" id="overlay"></div> <!-- Overlay div -->
+
+  <!-- Login Popup -->
+  <div class="login-popup" id="loginPopup">
+    <div class="close-btn" onclick="closePopup()">
+      <span style="font-size: 24px;">&times;</span>
+    </div>
+    <form class="login-form" action="#" method="POST">
+      <h2>Login to 𝙏𝘼𝙀𝙙𝙜𝙚𝙀𝙙𝙪</h2>
+      <div class="input-container">
+        <i class="fas fa-user"></i>
+        <input type="text" name="username" placeholder="Username">
+      </div>
+      <div class="input-container">
+        <i class="fas fa-lock"></i>
+        <input type="password" name="password" placeholder="Password">
+      </div>
+      <button type="submit" class="btn">Login</button>
+      <div class="links">
+        <a href="#" onclick="openForgetPassword()">Forget Password</a>
+        <a href="#" onclick="openRegistration()">Register</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Registration Popup -->
+  <div class="login-popup" id="registrationPopup">
+    <div class="close-btn" onclick="closePopup()">
+      <span style="font-size: 24px;">&times;</span>
+    </div>
+    <form class="registration-form" action="#" method="POST">
+      <h2>Register for 𝙏𝘼𝙀𝙙𝙜𝙚𝙀𝙙𝙪</h2>
+      <div class="input-container">
+        <i class="fas fa-user"></i>
+        <input type="text" name="fullname" placeholder="Full Name">
+      </div>
+      <div class="input-container">
+        <i class="fas fa-user"></i>
+        <input type="text" name="fullname" placeholder="UID">
+      </div>
+      <div class="input-container">
+        <i class="fas fa-envelope"></i>
+        <input type="email" name="email" placeholder="Email">
+      </div>
+      
+      <div class="input-container">
+        <i class="fas fa-lock"></i>
+        <input type="password" name="password" placeholder="Password">
+      </div>
+      <button type="submit" class="btn">Register</button>
+    </form>
+  </div>
+
+  <!-- Forget Password Popup -->
+  <div class="login-popup" id="forgetPasswordPopup">
+    <div class="close-btn" onclick="closePopup()">
+      <span style="font-size: 24px;">&times;</span>
+    </div>
+    <form class="forget-password-form" action="#" method="POST">
+      <h2>Forget Password</h2>
+      <div class="input-container">
+        <i class="fas fa-user"></i>
+        <input type="text" name="username" placeholder="Username">
+      </div>
+      <div class="input-container">
+        <i class="fas fa-envelope"></i>
+        <input type="email" name="email" placeholder="Email">
+      </div>
+      <button type="button" class="btn" onclick="openOTPVerification()">Next</button>
+    </form>
+  </div>
+
+  <!-- OTP Verification Popup -->
+  <div class="login-popup" id="otpVerificationPopup">
+    <div class="close-btn" onclick="closePopup()">
+      <span style="font-size: 24px;">&times;</span>
+    </div>
+    <form class="otp-verification-form" action="#" method="POST">
+      <h2>Enter OTP</h2>
+      <div class="input-container">
+        <i class="fas fa-key"></i>
+        <input type="text" name="otp" placeholder="Enter OTP">
+      </div>
+      <button type="button" class="btn" onclick="openNewPassword()">Submit</button>
+    </form>
+  </div>
+
+  <!-- New Password Popup -->
+  <div class="login-popup" id="newPasswordPopup">
+    <div class="close-btn" onclick="closePopup()">
+      <span style="font-size: 24px;">&times;</span>
+    </div>
+    <form class="new-password-form" action="#" method="POST">
+      <h2>Enter New Password</h2>
+      <div class="input-container">
+        <i class="fas fa-lock"></i>
+        <input type="password" name="newPassword" placeholder="New Password">
+      </div>
+      <div class="input-container">
+        <i class="fas fa-lock"></i>
+        <input type="password" name="confirmNewPassword" placeholder="Confirm New Password">
+      </div>
+      <button type="button" class="btn" onclick="changePassword()">Submit</button>
+    </form>
+  </div>
+
+  
+<!-- Registration Success Popup -->
+<div class="login-popup" id="registrationSuccessPopup">
+  <div class="close-btn" onclick="closePopup()">
+    <span style="font-size: 24px;">&times;</span>
+  </div>
+  <h2>Registration Successful!</h2>
+  <p>Your account has been successfully registered.</p>
+  <button class="btn" onclick="openLogin()">Login</button>
+</div>
+
+
+
+</nav>
+
+<script>
+  // Function to open login popup
+  document.getElementById('loginButton').addEventListener('click', function() {
+    document.getElementById('loginPopup').classList.add('active');
+    document.getElementById('overlay').classList.add('active');
+  });
+
+  // Function to close popup
+  function closePopup() {
+    var popups = document.querySelectorAll('.login-popup');
+    popups.forEach(function(popup) {
+      popup.classList.remove('active');
+    });
+    document.getElementById('overlay').classList.remove('active');
+  }
+
+  // Function to open registration popup
+  function openRegistration() {
+    closePopup();
+    document.getElementById('registrationPopup').classList.add('active');
+    document.getElementById('overlay').classList.add('active');
+  }
+
+  // Function to open forget password popup
+  function openForgetPassword() {
+    closePopup();
+    document.getElementById('forgetPasswordPopup').classList.add('active');
+    document.getElementById('overlay').classList.add('active');
+  }
+
+  // Function to open OTP verification popup
+  function openOTPVerification() {
+    closePopup();
+    document.getElementById('otpVerificationPopup').classList.add('active');
+    document.getElementById('overlay').classList.add('active');
+  }
+
+  // Function to open new password popup
+  function openNewPassword() {
+    closePopup();
+    document.getElementById('newPasswordPopup').classList.add('active');
+    document.getElementById('overlay').classList.add('active');
+  }
+
+  // Function to open login popup
+  function openLogin() {
+    closePopup();
+    document.getElementById('loginPopup').classList.add('active');
+    document.getElementById('overlay').classList.add('active');
+  }
+
+  // Function to handle form submission (optional)
+  document.querySelector('.login-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Handle form submission here
+    console.log('Login submitted');
+  });
+
+  document.querySelector('.registration-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Handle registration form submission here
+    console.log('Registration submitted');
+    openRegistrationSuccess(); // Open registration success popup
+  });
+
+  document.querySelector('.forget-password-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Handle forget password form submission here
+    console.log('Forget password submitted');
+    openOTPVerification(); // Open OTP verification popup
+  });
+
+  document.querySelector('.otp-verification-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Handle OTP verification form submission here
+    console.log('OTP verification submitted');
+    openNewPassword(); // Open new password popup
+  });
+  // Function to open registration success popup
+function openRegistrationSuccess() {
+  closePopup();
+  document.getElementById('registrationSuccessPopup').classList.add('active');
+  document.getElementById('overlay').classList.add('active');
+}
+
+
+
+
+</script>
+

@@ -1,0 +1,315 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #afd5f0, #2c3e50);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    justify-content: center; /* Center the feedback form horizontally */
+    align-items: center; /* Center the feedback form vertically */
+   
+    
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 100px;
+    margin-bottom: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    animation: fade-in 1s ease-out;
+    transition: background-color 0.3s ease;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1,
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #f1c40f;
+}
+
+.about-image {
+    display: block;
+    margin: auto;
+    width: 100%;
+    max-width: 280px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    animation: zoom-in 2s ease-out;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes zoom-in {
+    0% {
+        transform: scale(0.75);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.mission-vision {
+    margin-bottom: 20px;
+    animation: slide-up 1s ease-out;
+}
+
+@keyframes slide-up {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.contact-link {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    animation: fade-in 1s ease-out;
+}
+
+.contact-link a {
+    color: #f1c40f;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.contact-link a:hover {
+    color: #f39c12;
+}
+
+/* Key Features Section */
+.key-features {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    animation: fade-in 1s ease-out;
+}
+
+.key-feature {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.key-feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+.key-feature h3 {
+    color: #fff;
+    margin-bottom: 10px;
+    animation: slide-up 1s ease-out;
+}
+
+.key-feature p {
+    color: #ddd;
+}
+
+/* Media Query for Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .about-image {
+        max-width: 50%;
+    }
+
+    .key-features {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+/* Header styles */
+h1 {
+font-size: 2.5rem;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* About image styles */
+.about-image {
+border: 2px solid #fff;
+}
+
+/* Mission and Vision styles */
+.mission-vision h2 {
+text-decoration: underline;
+}
+
+/* Key Features section styles */
+.key-features {
+margin-top: 50px;
+}
+
+.key-feature {
+position: relative;
+}
+
+.key-feature:before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.5);
+border-radius: 20px;
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+
+.key-feature:hover:before {
+opacity: 1;
+}
+
+.key-feature h3 {
+font-size: 1.2rem;
+margin-bottom: 15px;
+}
+
+.key-feature p {
+font-size: 0.9rem;
+}
+
+/* Contact link styles */
+.contact-link {
+margin-top: 50px;
+}
+
+.contact-link p {
+font-size: 0.9rem;
+}
+
+.contact-link a {
+font-weight: bold;
+font-size: 1rem;
+}
+
+.mission-vision {
+margin-bottom: 40px; /* Increase bottom margin for more spacing */
+animation: slide-up 1s ease-out;
+}
+
+.mission-vision h2 {
+font-size: 1.8rem; /* Increase font size for headings */
+margin-bottom: 15px; /* Increase bottom margin for headings */
+text-decoration: underline;
+}
+
+.mission-vision p {
+font-size: 1.1rem; /* Increase font size for paragraphs */
+line-height: 1.8; /* Increase line height for better readability */
+}
+header {
+background-color: #4CAF50;
+padding: 20px;
+text-align: center;
+color: #fff;
+}
+
+/* Main content container */
+.main-content {
+padding: 20px;
+}
+
+/* About section */
+.about-section {
+margin-bottom: 40px;
+}
+
+.about-section h1 {
+font-size: 2.5rem;
+margin-bottom: 20px;
+}
+
+.about-section p {
+font-size: 1.1rem;
+line-height: 1.6;
+}
+
+/* Key Features section */
+.key-features {
+margin-top: 40px;
+}
+
+.key-feature {
+padding: 20px;
+border-radius: 10px;
+background-color: rgba(255, 255, 255, 0.1);
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.key-feature h3 {
+font-size: 1.2rem;
+margin-bottom: 10px;
+}
+
+.key-feature p {
+font-size: 1rem;
+line-height: 1.4;
+}
+
+/* Contact section */
+.contact-section {
+margin-top: 40px;
+text-align: center;
+}
+
+.contact-section p {
+font-size: 1.1rem;
+line-height: 1.6;
+}
+
+.contact-section a {
+color: #f1c40f;
+font-weight: bold;
+text-decoration: none;
+transition: color 0.3s ease;
+}
+
+.contact-section a:hover {
+color: #f39c12;
+}
